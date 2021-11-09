@@ -1,7 +1,7 @@
 <html>
   <body>
     <script>
-      /* comment */
+    /* comment */
 // document.body.innerHTML = 'Hello World';
 /* write a function to draw a circle on the screen at a given point with a given color, radius and opacity */
 function drawCircle(x, y, color, radius, opacity) {
@@ -32,18 +32,8 @@ function drawCircles() {
 }
 /* call drawCircles */
 drawCircles();
-/* keep deleting the circles on screen randomly */
-function deleteCircles() {
-  var circles = document.body.getElementsByTagName('div');
-  var circle = circles[Math.floor(Math.random() * circles.length)];
-  document.body.removeChild(circle);
-  setTimeout(deleteCircles, Math.floor(Math.random() * 100) + 100);
-}
-/* call deleteCircles */
-deleteCircles();
 
 /* Using a good font, in the middle of the screen write "SHEKHAR SRIVASTAVA" */
-      function write_name(){
 var text = document.createElement('div');
 text.innerHTML = 'SHEKHAR SRIVASTAVA';
 text.style.position = 'absolute';
@@ -59,8 +49,16 @@ document.body.appendChild(text);
 text.addEventListener('click', function() {
   window.location.href = 'https://github.com/skrstv123/skrstv123/blob/main/Shekhar_Srivastava.pdf';
 });
+
+/* don't let the circles cover the text */
+function keepCirclesOnTop() {
+  var circles = document.body.getElementsByTagName('div');
+  var circle = circles[Math.floor(Math.random() * circles.length)];
+  circle.style.zIndex = '1';
+  setTimeout(keepCirclesOnTop, Math.floor(Math.random() * 100) + 100);
 }
-      write_name();
+/* call keepCirclesOnTop */
+keepCirclesOnTop();
 
     </script>
   </body>
