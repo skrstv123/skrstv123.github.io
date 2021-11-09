@@ -1,0 +1,64 @@
+<html>
+  <body>
+    <script>
+      /* comment */
+// document.body.innerHTML = 'Hello World';
+/* write a function to draw a circle on the screen at a given point with a given color, radius and opacity */
+function drawCircle(x, y, color, radius, opacity) {
+  var circle = document.createElement('div');
+  circle.style.position = 'absolute';
+  circle.style.left = x + 'px';
+  circle.style.top = y + 'px';
+  circle.style.borderRadius = '50%';
+  circle.style.backgroundColor = color;
+  circle.style.width = radius + 'px';
+  circle.style.height = radius + 'px';
+  circle.style.opacity = opacity;
+  document.body.appendChild(circle);
+}
+/* write a function to draw circles randomly using drawCircle function and slowly fade them */
+function drawRandomCircles() {
+  var x = Math.floor(Math.random() * window.innerWidth);
+  var y = Math.floor(Math.random() * window.innerHeight);
+  var color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+  var radius = Math.floor(Math.random() * 10) + 5;
+  var opacity = Math.floor(Math.random() * 10) / 10;
+  drawCircle(x, y, color, radius, opacity);
+}
+/* keep drawing circles infinitely using drawRandomCircles function and destroy each circle in some time */
+function drawCircles() {
+  drawRandomCircles();
+  setTimeout(drawCircles, Math.floor(Math.random() * 100) + 100);
+}
+/* call drawCircles */
+drawCircles();
+/* keep deleting the circles on screen randomly */
+function deleteCircles() {
+  var circles = document.body.getElementsByTagName('div');
+  var circle = circles[Math.floor(Math.random() * circles.length)];
+  document.body.removeChild(circle);
+  setTimeout(deleteCircles, Math.floor(Math.random() * 100) + 100);
+}
+/* call deleteCircles */
+deleteCircles();
+
+/* Using a good font, in the middle of the screen write "SHEKHAR SRIVASTAVA" */
+var text = document.createElement('div');
+text.innerHTML = 'SHEKHAR SRIVASTAVA';
+text.style.position = 'absolute';
+text.style.left = '50%';
+text.style.top = '50%';
+text.style.transform = 'translate(-50%, -50%)';
+text.style.fontFamily = 'Courier New';
+text.style.fontSize = '50px';
+text.style.color = '#ff0000';
+document.body.appendChild(text);
+
+/* on clicking the text, redirect to https://github.com/skrstv123/skrstv123/blob/main/Shekhar_Srivastava.pdf */
+text.addEventListener('click', function() {
+  window.location.href = 'https://github.com/skrstv123/skrstv123/blob/main/Shekhar_Srivastava.pdf';
+});
+
+    </script>
+  </body>
+</html>
