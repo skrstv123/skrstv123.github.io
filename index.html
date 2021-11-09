@@ -1,5 +1,6 @@
 <html>
   <body>
+    <p>SHEKHAR SRIVASTAVA</p>
     <script>
     /* comment */
 // document.body.innerHTML = 'Hello World';
@@ -34,8 +35,7 @@ function drawCircles() {
 drawCircles();
 
 /* Using a good font, in the middle of the screen write "SHEKHAR SRIVASTAVA" */
-var text = document.createElement('div');
-text.innerHTML = 'SHEKHAR SRIVASTAVA';
+var text = document.getElementsByTagName("p")[0];
 text.style.position = 'absolute';
 text.style.left = '50%';
 text.style.top = '50%';
